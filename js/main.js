@@ -1,24 +1,69 @@
 /* ============================================================
-   SENDO HABITAT — INTERACTIONS
+   SENDO HABITAT — INTERACTIONS (REDESIGN)
+   parallax · IntersectionObserver stagger · compteurs · progress bar
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Navigation scroll state ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Scroll progress bar ── */
+  let progressBar = document.querySelector('.scroll-progress');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+  }
+
+  /* ── Éléments scroll ── */
   const nav = document.querySelector('.nav');
   const backTop = document.querySelector('.back-top');
+  const heroBg = document.querySelector('.hero-bg');
+  const impactBg = document.querySelector('.impact-bg');
 
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+
+  const onScroll = () => {
     const y = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    /* progress bar */
+    const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+
+    /* nav + back-to-top */
     nav?.classList.toggle('scrolled', y > 60);
     backTop?.classList.toggle('show', y > 450);
+
+    /* parallax léger sur le hero — translateY à 30% de scrollY */
+    if (!prefersReduced) {
+      if (heroBg && y < window.innerHeight) {
+        heroBg.style.transform = `translateY(${y * 0.3}px)`;
+      }
+      /* parallax léger sur la section impact */
+      if (impactBg) {
+        const rect = impactBg.parentElement.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const offset = (window.innerHeight - rect.top) * 0.08;
+          impactBg.style.transform = `translateY(${offset}px)`;
+        }
+      }
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
   }, { passive: true });
 
   backTop?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ── Hero image entrance ── */
+  /* ── Hero loaded state ── */
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('loaded'), 80);
 
@@ -56,20 +101,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ── Scroll reveal ── */
+  /* ── Scroll reveal + stagger automatique des enfants ── */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+
+        /* délais échelonnés automatiques sur les .stagger-item enfants */
+        const staggerKids = entry.target.querySelectorAll('.stagger-item');
+        staggerKids.forEach((kid, i) => {
+          kid.style.transitionDelay = (i * 0.12) + 's';
+          kid.classList.add('visible');
+        });
+
         revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.10, rootMargin: '0px 0px -36px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   revealEls.forEach(el => revealObs.observe(el));
 
-  /* ── Counter animation ── */
+  /* ── Stagger-items isolés (sans parent .reveal) ── */
+  const looseStaggers = document.querySelectorAll('.stagger-item');
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+        entry.target.classList.add('visible');
+        staggerObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  looseStaggers.forEach(el => {
+    /* n'observe que ceux sans parent reveal déjà géré */
+    if (!el.closest('.reveal, .reveal-left, .reveal-right')) staggerObs.observe(el);
+  });
+
+  /* ── Compteurs animés [data-count] ── */
   const counters = document.querySelectorAll('[data-count]');
   const countObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -86,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = parseInt(el.dataset.count, 10);
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
+    if (prefersReduced) { el.textContent = prefix + target + suffix; return; }
     const duration = 1900;
     const start = performance.now();
 
@@ -114,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Contact form ── */
+  /* ── Contact form → WhatsApp ── */
   const form = document.getElementById('contact-form');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
