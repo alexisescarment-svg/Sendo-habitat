@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sendo-habitat.com/sitemap.xml
+
+# Sendo Habitat — Rénovation Abidjan, Côte d'Ivoire
+# www.sendo-habitat.com
