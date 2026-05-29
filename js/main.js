@@ -27,20 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const y = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-    /* progress bar */
     const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
     progressBar.style.width = progress + '%';
 
-    /* nav + back-to-top */
     nav?.classList.toggle('scrolled', y > 60);
     backTop?.classList.toggle('show', y > 450);
 
-    /* parallax léger sur le hero — translateY à 30% de scrollY */
     if (!prefersReduced) {
       if (heroBg && y < window.innerHeight) {
         heroBg.style.transform = `translateY(${y * 0.3}px)`;
       }
-      /* parallax léger sur la section impact */
       if (impactBg) {
         const rect = impactBg.parentElement.getBoundingClientRect();
         if (rect.bottom > 0 && rect.top < window.innerHeight) {
@@ -108,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
 
-        /* délais échelonnés automatiques sur les .stagger-item enfants */
         const staggerKids = entry.target.querySelectorAll('.stagger-item');
         staggerKids.forEach((kid, i) => {
           kid.style.transitionDelay = (i * 0.12) + 's';
@@ -133,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.15 });
   looseStaggers.forEach(el => {
-    /* n'observe que ceux sans parent reveal déjà géré */
     if (!el.closest('.reveal, .reveal-left, .reveal-right')) staggerObs.observe(el);
   });
 
@@ -183,34 +177,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Contact form → WhatsApp ── */
+  /* ── Articles — expand/collapse ── */
+  document.querySelectorAll('.blog-read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.blog-card');
+      const full = card?.querySelector('.blog-full');
+      if (!full) return;
+      const expanded = full.classList.toggle('expanded');
+      btn.innerHTML = expanded
+        ? 'Réduire ↑'
+        : 'Lire l\'article complet →';
+    });
+  });
+
+  /* ── Contact form → Formspree (fallback WhatsApp) ── */
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const orig = btn.innerHTML;
-    btn.innerHTML = 'Message envoyé ✓';
-    btn.style.background = '#2e7d32';
+    btn.innerHTML = 'Envoi en cours…';
     btn.disabled = true;
 
-    const name    = form.querySelector('[name="name"]')?.value || '';
-    const phone   = form.querySelector('[name="phone"]')?.value || '';
-    const service = form.querySelector('[name="service"]')?.value || '';
-    const msg     = form.querySelector('[name="message"]')?.value || '';
-    const waText  = encodeURIComponent(
-      `Bonjour Sendo Habitat,\n\nJe m'appelle ${name}.\nService souhaité : ${service}.\n${msg}\n\nMon téléphone : ${phone}`
-    );
-
-    setTimeout(() => {
-      window.open(`https://wa.me/22507048835490?text=${waText}`, '_blank');
-    }, 400);
-
-    setTimeout(() => {
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.innerHTML = 'Demande envoyée ✓';
+        btn.style.background = '#2e7d32';
+        form.reset();
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3500);
+      } else {
+        throw new Error('formspree');
+      }
+    } catch {
+      /* Fallback WhatsApp si Formspree non encore configuré */
+      const name    = form.querySelector('[name="name"]')?.value || '';
+      const phone   = form.querySelector('[name="phone"]')?.value || '';
+      const service = form.querySelector('[name="service"]')?.value || '';
+      const msg     = form.querySelector('[name="message"]')?.value || '';
+      const waText  = encodeURIComponent(
+        `Bonjour Sendo Habitat,\n\nJe m'appelle ${name}.\nService souhaité : ${service}.\n${msg}\n\nMon téléphone : ${phone}`
+      );
       btn.innerHTML = orig;
       btn.style.background = '';
       btn.disabled = false;
-      form.reset();
-    }, 3200);
+      window.open(`https://wa.me/2250704883549?text=${waText}`, '_blank');
+    }
   });
 
 });

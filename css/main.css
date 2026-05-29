@@ -452,7 +452,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 .impact-head .section-label { justify-content: center; }
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .impact-stat {
   padding: 24px 16px;
@@ -667,7 +667,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
    ============================================================ */
 footer { background: var(--footer-bg); padding: 76px 5vw 36px; }
 .footer-top {
-  display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.2fr; gap: 48px;
+  display: grid; grid-template-columns: 2.2fr 1fr 1.4fr; gap: 48px;
   padding-bottom: 52px; border-bottom: 1px solid rgba(200,169,110,0.10);
   max-width: var(--max-w); margin: 0 auto;
 }
@@ -827,6 +827,18 @@ footer { background: var(--footer-bg); padding: 76px 5vw 36px; }
 .blog-meta { display: flex; align-items: center; gap: 18px; font-size: 11px; color: var(--text-gray); }
 .blog-meta span { display: flex; align-items: center; gap: 5px; }
 .blog-meta svg { width: 12px; height: 12px; }
+.blog-read-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); cursor: pointer; background: none; border: none; padding: 0; font-family: var(--sans); transition: gap var(--trans); }
+.blog-read-more:hover { gap: 10px; }
+.blog-full { max-height: 0; overflow: hidden; transition: max-height 0.6s ease; }
+.blog-full.expanded { max-height: 4000px; }
+.blog-full-inner { padding: 24px 28px 28px; border-top: 1px solid var(--border); background: var(--off-white); }
+.blog-full-inner h3 { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--navy); margin: 20px 0 8px; }
+.blog-full-inner h3:first-child { margin-top: 0; }
+.blog-full-inner p { font-size: 13px; color: var(--text-gray); line-height: 1.75; margin-bottom: 12px; font-weight: 300; }
+.blog-full-inner ul { margin: 8px 0 12px 16px; }
+.blog-full-inner ul li { font-size: 13px; color: var(--text-gray); line-height: 1.68; margin-bottom: 6px; font-weight: 300; }
+.blog-full-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; background: var(--navy); color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 20px; transition: background var(--trans); }
+.blog-full-cta:hover { background: var(--gold); color: var(--white); }
 
 /* ============================================================
    20. CONTACT PAGE
