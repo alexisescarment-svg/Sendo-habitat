@@ -1,236 +1,285 @@
 /* ============================================================
-   SENDO HABITAT — INTERACTIONS (REDESIGN)
-   parallax · IntersectionObserver stagger · compteurs · progress bar
+   SENDO HABITAT — Main JavaScript
+   Renovation & Construction — Abidjan, Côte d'Ivoire
    ============================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+'use strict';
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ── Scroll Progress Bar ──────────────────────────────────── */
+(function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
 
-  /* ── Scroll progress bar ── */
-  let progressBar = document.querySelector('.scroll-progress');
-  if (!progressBar) {
-    progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
+  function updateProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
   }
 
-  /* ── Éléments scroll ── */
-  const nav = document.querySelector('.nav');
-  const backTop = document.querySelector('.back-top');
-  const heroBg = document.querySelector('.hero-bg');
-  const impactBg = document.querySelector('.impact-bg');
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
 
-  let ticking = false;
+/* ── Navigation Scroll Behavior ──────────────────────────── */
+(function initNav() {
+  const nav = document.getElementById('main-nav');
+  if (!nav) return;
 
-  const onScroll = () => {
-    const y = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-    const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
-    progressBar.style.width = progress + '%';
-
-    nav?.classList.toggle('scrolled', y > 60);
-    backTop?.classList.toggle('show', y > 450);
-
-    if (!prefersReduced) {
-      if (heroBg && y < window.innerHeight) {
-        heroBg.style.transform = `translateY(${y * 0.3}px)`;
-      }
-      if (impactBg) {
-        const rect = impactBg.parentElement.getBoundingClientRect();
-        if (rect.bottom > 0 && rect.top < window.innerHeight) {
-          const offset = (window.innerHeight - rect.top) * 0.08;
-          impactBg.style.transform = `translateY(${offset}px)`;
-        }
-      }
+  function onScroll() {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
     }
-    ticking = false;
-  };
+  }
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(onScroll);
-      ticking = true;
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mark active link
+  const links = nav.querySelectorAll('.nav-links a:not(.nav-cta)');
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  links.forEach(link => {
+    const href = link.getAttribute('href') || '';
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('active');
     }
-  }, { passive: true });
-
-  backTop?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+})();
 
-  /* ── Hero loaded state ── */
-  const hero = document.querySelector('.hero');
-  if (hero) setTimeout(() => hero.classList.add('loaded'), 80);
-
-  /* ── Mobile menu ── */
+/* ── Mobile Burger Menu ───────────────────────────────────── */
+(function initBurger() {
   const burger = document.querySelector('.nav-burger');
-  const mobileMenu = document.querySelector('.nav-mobile');
-  const burgerLines = burger?.querySelectorAll('span');
+  const drawer = document.getElementById('nav-drawer');
+  if (!burger || !drawer) return;
 
-  const closeMobileMenu = () => {
-    mobileMenu?.classList.remove('open');
-    if (burgerLines) {
-      burgerLines[0].style.transform = '';
-      burgerLines[1].style.opacity = '';
-      burgerLines[2].style.transform = '';
-    }
-  };
+  function openMenu() {
+    burger.classList.add('open');
+    drawer.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
 
-  burger?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.toggle('open');
-    if (burgerLines) {
-      burgerLines[0].style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
-      burgerLines[1].style.opacity  = isOpen ? '0' : '';
-      burgerLines[2].style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
-    }
+  function closeMenu() {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
   });
 
-  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
-
-  /* ── Active nav link ── */
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href === currentFile || (currentFile === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
+  // Close on drawer link click
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 
-  /* ── Scroll reveal + stagger automatique des enfants ── */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const revealObs = new IntersectionObserver((entries) => {
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
+
+/* ── Reveal Animations (IntersectionObserver) ─────────────── */
+(function initReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-
-        const staggerKids = entry.target.querySelectorAll('.stagger-item');
-        staggerKids.forEach((kid, i) => {
-          kid.style.transitionDelay = (i * 0.12) + 's';
-          kid.classList.add('visible');
-        });
-
-        revealObs.unobserve(entry.target);
+        const el = entry.target;
+        const delay = el.dataset.delay;
+        if (delay) {
+          el.style.transitionDelay = (parseInt(delay) * 0.1) + 's';
+        }
+        el.classList.add('visible');
+        observer.unobserve(el);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach(el => revealObs.observe(el));
-
-  /* ── Stagger-items isolés (sans parent .reveal) ── */
-  const looseStaggers = document.querySelectorAll('.stagger-item');
-  const staggerObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-        entry.target.classList.add('visible');
-        staggerObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  looseStaggers.forEach(el => {
-    if (!el.closest('.reveal, .reveal-left, .reveal-right')) staggerObs.observe(el);
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -48px 0px'
   });
 
-  /* ── Compteurs animés [data-count] ── */
+  elements.forEach(el => observer.observe(el));
+})();
+
+/* ── Animated Number Counters ─────────────────────────────── */
+(function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
-  const countObs = new IntersectionObserver((entries) => {
+  if (!counters.length) return;
+
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutQuart(progress);
+      const value = target * eased;
+
+      if (Number.isInteger(target)) {
+        el.textContent = Math.round(value) + suffix;
+      } else {
+        el.textContent = value.toFixed(1) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(animateCounter);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        animateCount(entry.target);
-        countObs.unobserve(entry.target);
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.5 });
 
-  counters.forEach(el => countObs.observe(el));
+  counters.forEach(el => observer.observe(el));
+})();
 
-  function animateCount(el) {
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || '';
-    const prefix = el.dataset.prefix || '';
-    if (prefersReduced) { el.textContent = prefix + target + suffix; return; }
-    const duration = 1900;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(eased * target) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
-
-  /* ── Portfolio filter ── */
+/* ── Portfolio Filter ─────────────────────────────────────── */
+(function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const pfItems = document.querySelectorAll('.pf-item');
+  const items = document.querySelectorAll('.portfolio-item');
+  if (!filterBtns.length || !items.length) return;
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
       const cat = btn.dataset.filter;
-      pfItems.forEach(item => {
-        const show = cat === 'all' || item.dataset.cat === cat;
-        item.style.display = show ? '' : 'none';
+
+      items.forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.classList.remove('hidden');
+          item.style.animation = 'none';
+          item.offsetHeight; // reflow
+          item.style.animation = '';
+        } else {
+          item.classList.add('hidden');
+        }
       });
     });
   });
+})();
 
-  /* ── Articles — expand/collapse ── */
-  document.querySelectorAll('.blog-read-more').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.blog-card');
-      const full = card?.querySelector('.blog-full');
-      if (!full) return;
-      const expanded = full.classList.toggle('expanded');
-      btn.innerHTML = expanded
-        ? 'Réduire ↑'
-        : 'Lire l\'article complet →';
-    });
-  });
-
-  /* ── Contact form → Formspree (fallback WhatsApp) ── */
+/* ── Contact Form Submission ──────────────────────────────── */
+(function initContactForm() {
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', async (e) => {
+  if (!form) return;
+
+  const successMsg = document.getElementById('form-success');
+  const submitBtn = form.querySelector('.form-submit');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const orig = btn.innerHTML;
-    btn.innerHTML = 'Envoi en cours…';
-    btn.disabled = true;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours…';
+    }
+
+    const data = new FormData(form);
 
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: data,
         headers: { 'Accept': 'application/json' }
       });
+
       if (res.ok) {
-        btn.innerHTML = 'Demande envoyée ✓';
-        btn.style.background = '#2e7d32';
-        form.reset();
-        setTimeout(() => {
-          btn.innerHTML = orig;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3500);
+        form.style.display = 'none';
+        if (successMsg) {
+          successMsg.classList.add('visible');
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       } else {
-        throw new Error('formspree');
+        throw new Error('Server error');
       }
-    } catch {
-      /* Fallback WhatsApp si Formspree non encore configuré */
-      const name    = form.querySelector('[name="name"]')?.value || '';
-      const phone   = form.querySelector('[name="phone"]')?.value || '';
-      const service = form.querySelector('[name="service"]')?.value || '';
-      const msg     = form.querySelector('[name="message"]')?.value || '';
-      const waText  = encodeURIComponent(
-        `Bonjour Sendo Habitat,\n\nJe m'appelle ${name}.\nService souhaité : ${service}.\n${msg}\n\nMon téléphone : ${phone}`
-      );
-      btn.innerHTML = orig;
-      btn.style.background = '';
-      btn.disabled = false;
-      window.open(`https://wa.me/2250704883549?text=${waText}`, '_blank');
+    } catch (err) {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Réessayer';
+      }
+      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.');
     }
   });
+})();
 
+/* ── Back to Top Button ───────────────────────────────────── */
+(function initBackTop() {
+  const btn = document.getElementById('back-top');
+  if (!btn) return;
+
+  function onScroll() {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ── Marquee Duplication ──────────────────────────────────── */
+(function initMarquee() {
+  const tracks = document.querySelectorAll('.marquee-track');
+  tracks.forEach(track => {
+    // Duplicate content for seamless infinite loop
+    const original = track.innerHTML;
+    track.innerHTML = original + original;
+  });
+})();
+
+/* ── Smooth anchor scrolling ──────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
 });

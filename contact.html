@@ -3,244 +3,295 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Devis Gratuit | Sendo Habitat — Abidjan, Côte d'Ivoire</title>
-  <meta name="description" content="Contactez Sendo Habitat pour votre projet de rénovation à Abidjan. Devis gratuit sous 48h. Tél : +225 07 04 88 35 49 — alexis@sendo-habitat.com" />
-  <meta name="keywords" content="contact rénovation Abidjan, devis rénovation gratuit Abidjan, Sendo Habitat contact, entrepreneur rénovation Côte d'Ivoire, devis second oeuvre Abidjan" />
-  <link rel="canonical" href="https://www.sendo-habitat.com/contact.html" />
-  <meta property="og:title" content="Contact & Devis Gratuit | Sendo Habitat Abidjan" />
-  <meta property="og:description" content="Demandez votre devis gratuit de rénovation à Abidjan. Réponse sous 48h garantie." />
+  <meta name="description" content="Contactez Sendo Habitat — Devis gratuit sous 48h pour votre projet de rénovation à Abidjan, Côte d'Ivoire." />
+  <meta name="theme-color" content="#0A1628" />
+  <title>Devis gratuit — Sendo Habitat, Abidjan</title>
+  <link rel="stylesheet" href="main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
-<!-- NAV -->
+<div id="scroll-progress"></div>
+
+<!-- ── NAVIGATION ─────────────────────────────────────────── -->
 <nav class="nav" id="main-nav">
-  <a href="index.html" class="nav-logo"><svg viewBox="0 0 54 54" fill="none"><polygon points="27,4 50,28 4,28" stroke="#C8A96E" stroke-width="2.2" fill="none" stroke-linejoin="round"/><line x1="19" y1="34" x2="35" y2="34" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/><line x1="13" y1="41" x2="41" y2="41" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/><line x1="8" y1="48" x2="46" y2="48" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/></svg><span class="nav-logo-text"><span class="logo-sendo">Sendo</span><span class="logo-habitat">Habitat</span></span></a>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 54 54" fill="none" aria-hidden="true">
+      <polygon points="27,4 50,28 4,28" stroke="#C49A3C" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+      <line x1="19" y1="34" x2="35" y2="34" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/>
+      <line x1="13" y1="41" x2="41" y2="41" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/>
+      <line x1="8"  y1="48" x2="46" y2="48" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/>
+    </svg>
+    <span class="logo-text"><strong>Sendo</strong> Habitat</span>
+  </a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
     <a href="qui-sommes-nous.html">L'entreprise</a>
     <a href="realisations.html">Réalisations</a>
     <a href="actualites.html">Actualités</a>
-    <a href="contact.html" class="nav-cta active">Devis gratuit</a>
+    <a href="contact.html" class="nav-cta">Devis gratuit</a>
   </div>
-  <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-<nav class="nav-mobile">
-  <a href="index.html">Accueil</a><a href="qui-sommes-nous.html">L'entreprise</a><a href="realisations.html">Réalisations</a><a href="actualites.html">Actualités</a><a href="contact.html" class="nav-cta-mobile active">Devis gratuit</a>
-</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <div class="drawer-inner">
+    <a href="index.html">Accueil</a>
+    <a href="qui-sommes-nous.html">L'entreprise</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="actualites.html">Actualités</a>
+    <a href="contact.html" class="drawer-cta">Demander un devis</a>
+  </div>
+</div>
 
-<!-- PAGE HEADER -->
+<!-- ── PAGE HEADER ─────────────────────────────────────────── -->
 <header class="page-header">
-  <div class="page-header-bg" style="background-image:url('https://images.unsplash.com/photo-1562664377-709f2c337eb2?auto=format&fit=crop&w=1920&q=80')"></div>
+  <img class="page-header-bg" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80" alt="Discussion professionnelle" loading="eager" />
   <div class="page-header-overlay"></div>
-  <div class="page-header-content">
-    <div class="section-label">Parlons de votre projet</div>
-    <h1>Devis gratuit<br><em>sous 48h</em></h1>
-    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">—</span><span>Contact</span></div>
+  <div class="container page-header-content">
+    <div class="section-label">Contactez-nous</div>
+    <h1>Devis gratuit sous 48h</h1>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span>/</span>
+      <span>Contact</span>
+    </nav>
   </div>
 </header>
 
-<!-- CONTACT MAIN -->
-<section class="contact-wrap">
-  <div class="contact-inner">
+<!-- ── CONTACT SECTION ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left: info -->
+      <div class="contact-info">
+        <div class="section-label reveal">Parlons de votre projet</div>
+        <h2 class="reveal" data-delay="1">Votre interlocuteur dédié, de la première idée à la livraison</h2>
+        <p class="lead reveal" data-delay="2">Que vous ayez un projet bien défini ou simplement une idée à explorer, nous sommes là pour vous guider. Premier échange gratuit, devis détaillé sous 48h.</p>
 
-    <!-- COLONNE GAUCHE : infos -->
-    <div>
-      <div class="contact-info-head">
-        <div class="section-label reveal">Nos coordonnées</div>
-        <h2 class="section-title reveal">Notre équipe<br><em>vous répond</em></h2>
-        <p class="reveal">Contactez directement nos experts. Nous vous répondons dans les 48h ouvrées et réalisons une visite de site si nécessaire — gratuitement et sans engagement.</p>
+        <!-- Alexis -->
+        <div class="contact-person reveal" data-delay="3">
+          <div class="contact-person-name">Alexis Escarment</div>
+          <div class="contact-person-role">Directeur Commercial</div>
+          <div class="contact-person-links">
+            <a href="tel:+2250704883549">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +225 07 04 88 35 49
+            </a>
+            <a href="mailto:alexis@sendo-habitat.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              alexis@sendo-habitat.com
+            </a>
+            <a href="https://wa.me/2250704883549?text=Bonjour%20Alexis%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener" style="color:#25D366;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp Alexis
+            </a>
+          </div>
+        </div>
+
+        <!-- Peio -->
+        <div class="contact-person reveal" data-delay="4">
+          <div class="contact-person-name">Philippe Peio Harreguy</div>
+          <div class="contact-person-role">Directeur Technique</div>
+          <div class="contact-person-links">
+            <a href="tel:+2250769739892">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +225 07 69 73 98 92
+            </a>
+            <a href="mailto:peio@sendo-habitat.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              peio@sendo-habitat.com
+            </a>
+            <a href="https://wa.me/2250769739892?text=Bonjour%20Peio%2C%20je%20souhaite%20discuter%20d'un%20projet." target="_blank" rel="noopener" style="color:#25D366;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp Peio
+            </a>
+          </div>
+        </div>
+
+        <!-- Practical info -->
+        <div class="practical-info reveal" data-delay="5">
+          <h4>Informations pratiques</h4>
+          <ul>
+            <li>Basés à Abidjan, interventions dans toute la ville</li>
+            <li>Devis gratuit et sans engagement sous 48h</li>
+            <li>Disponibles du lundi au samedi, 8h–18h</li>
+            <li>Réponse WhatsApp sous 2h en journée</li>
+            <li>Visite de chantier possible sur rendez-vous</li>
+            <li>Prise en charge complète dès la première rencontre</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Alexis -->
-      <div class="contact-person reveal">
-        <div class="cp-name">Alexis Escarment</div>
-        <div class="cp-role">Directeur Commercial</div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+2250704883549">+225 07 04 88 35 49</a>
-        </div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:alexis@sendo-habitat.com">alexis@sendo-habitat.com</a>
-        </div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <a href="https://wa.me/2250704883549?text=Bonjour%20Alexis%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20de%20r%C3%A9novation." target="_blank" rel="noopener noreferrer">WhatsApp : +225 07 04 88 35 49</a>
-        </div>
-      </div>
+      <!-- Right: Form -->
+      <div class="reveal" data-delay="2">
+        <div class="form-box">
+          <div class="form-title">Demande de devis</div>
+          <p class="form-subtitle">Remplissez ce formulaire et nous vous recontactons sous 48h avec un devis personnalisé.</p>
 
-      <!-- Peio -->
-      <div class="contact-person reveal" data-delay="1">
-        <div class="cp-name">Philippe Peio Harreguy</div>
-        <div class="cp-role">Directeur Technique</div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+22507697398 92">+225 07 69 73 98 92</a>
-        </div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:peio@sendo-habitat.com">peio@sendo-habitat.com</a>
-        </div>
-        <div class="cp-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <a href="https://wa.me/2250769739892?text=Bonjour%20Peio%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20de%20r%C3%A9novation." target="_blank" rel="noopener noreferrer">WhatsApp : +225 07 69 73 98 92</a>
-        </div>
-      </div>
+          <form id="contact-form" action="https://formspree.io/f/xqejjzwd" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom complet *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+              </div>
+              <div class="form-group">
+                <label for="societe">Société</label>
+                <input type="text" id="societe" name="societe" placeholder="Votre société (optionnel)" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telephone">Téléphone *</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+225 XX XX XX XX XX" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="type-projet">Type de projet *</label>
+              <select id="type-projet" name="type_projet" required>
+                <option value="" disabled selected>Sélectionnez un type de projet</option>
+                <option value="renovation-complete">Rénovation complète</option>
+                <option value="second-oeuvre">Second œuvre</option>
+                <option value="finitions">Finitions &amp; Décoration</option>
+                <option value="maitrise-oeuvre">Maîtrise d'œuvre</option>
+                <option value="bureau-etudes">Bureau d'études</option>
+                <option value="suivi-chantier">Suivi de chantier</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="surface">Surface approximative</label>
+                <select id="surface" name="surface">
+                  <option value="" disabled selected>Surface (m²)</option>
+                  <option value="moins-50">Moins de 50 m²</option>
+                  <option value="50-100">50 — 100 m²</option>
+                  <option value="100-200">100 — 200 m²</option>
+                  <option value="200-500">200 — 500 m²</option>
+                  <option value="plus-500">Plus de 500 m²</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">Budget envisagé</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Fourchette de budget</option>
+                  <option value="moins-2m">Moins de 2 M FCFA</option>
+                  <option value="2-5m">2 — 5 M FCFA</option>
+                  <option value="5-15m">5 — 15 M FCFA</option>
+                  <option value="15-30m">15 — 30 M FCFA</option>
+                  <option value="plus-30m">Plus de 30 M FCFA</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="localisation">Localisation du projet</label>
+              <input type="text" id="localisation" name="localisation" placeholder="Quartier / commune à Abidjan" />
+            </div>
+            <div class="form-group">
+              <label for="message">Description du projet *</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre projet : nature des travaux, état actuel, attentes particulières..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Envoyer ma demande de devis →</button>
+          </form>
 
-      <!-- Infos pratiques -->
-      <div class="reveal" style="background:var(--navy);padding:28px 28px;margin-top:16px;border-left:3px solid var(--gold);">
-        <div style="font-family:var(--serif);font-size:17px;font-weight:600;color:var(--white);margin-bottom:16px;">Informations pratiques</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;margin-top:3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span style="font-size:13px;color:rgba(255,255,255,0.55);">Abidjan, Côte d'Ivoire — Intervention sur tout Abidjan et sa périphérie</span>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;margin-top:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span style="font-size:13px;color:rgba(255,255,255,0.55);">Lundi – Vendredi : 8h00 – 18h00 · Samedi : 8h00 – 13h00</span>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;margin-top:3px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span style="font-size:13px;color:rgba(255,255,255,0.55);">Devis gratuit · Réponse garantie sous 48h · Visite de site incluse</span>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;margin-top:3px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            <a href="https://www.linkedin.com/company/sendo-habitat/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:rgba(255,255,255,0.55);transition:color 0.35s;">linkedin.com/company/sendo-habitat</a>
+          <div class="form-success" id="form-success">
+            <div class="success-icon">✅</div>
+            <h3>Merci pour votre demande !</h3>
+            <p>Nous avons bien reçu votre message. Alexis ou Peio vous recontactera sous 48h avec un devis personnalisé.</p>
+            <p style="margin-top:16px;">En attendant, n'hésitez pas à nous écrire sur WhatsApp.</p>
+            <a href="https://wa.me/2250704883549?text=Bonjour%20Sendo%20Habitat%2C%20je%20viens%20de%20soumettre%20un%20formulaire." class="btn btn-wa" target="_blank" rel="noopener" style="margin-top:24px; display:inline-flex;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Nous écrire sur WhatsApp
+            </a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- COLONNE DROITE : formulaire -->
-    <div class="contact-form-box reveal-right">
-      <h3>Décrivez votre projet</h3>
-
-      <form id="contact-form" action="https://formspree.io/f/xqejjzwd" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Nouveau devis — Sendo Habitat" />
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Nom complet *</label>
-            <input type="text" id="name" name="name" placeholder="Jean Dupont" required autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="company">Société (optionnel)</label>
-            <input type="text" id="company" name="company" placeholder="Votre entreprise" autocomplete="organization" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">Téléphone *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+225 07 XX XX XX XX" required autocomplete="tel" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="vous@exemple.com" required autocomplete="email" />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="service">Type de projet *</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Sélectionnez votre projet…</option>
-            <option value="Rénovation complète">Rénovation complète</option>
-            <option value="Finitions & Décoration">Finitions &amp; Décoration intérieure</option>
-            <option value="Maîtrise d'Œuvre">Maîtrise d'Œuvre</option>
-            <option value="Bureau d'études">Bureau d'études &amp; Plans</option>
-            <option value="Suivi de chantier">Suivi de chantier</option>
-            <option value="Aménagement intérieur">Aménagement intérieur</option>
-            <option value="Autre">Autre / Question générale</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="surface">Surface approximative</label>
-            <select id="surface" name="surface">
-              <option value="" disabled selected>Surface du projet…</option>
-              <option>Moins de 50 m²</option>
-              <option>50 – 100 m²</option>
-              <option>100 – 200 m²</option>
-              <option>200 – 500 m²</option>
-              <option>Plus de 500 m²</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="budget">Budget estimé</label>
-            <select id="budget" name="budget">
-              <option value="" disabled selected>Budget indicatif…</option>
-              <option>Moins de 5 000 000 FCFA</option>
-              <option>5 – 15 millions FCFA</option>
-              <option>15 – 50 millions FCFA</option>
-              <option>Plus de 50 millions FCFA</option>
-              <option>Non défini</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="location">Localisation du chantier</label>
-          <input type="text" id="location" name="location" placeholder="Ex : Cocody Riviera, Plateau, Marcory…" />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Décrivez votre projet *</label>
-          <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet, vos besoins, le calendrier souhaité…" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:12px;padding:18px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Envoyer ma demande de devis
-        </button>
-        <p class="form-note">
-          Votre demande est envoyée directement à notre équipe par email. Devis gratuit et sans engagement. Réponse garantie sous 48h ouvrées.
-        </p>
-      </form>
-    </div>
-
   </div>
 </section>
 
-<!-- SECTION RAPIDE WHATSAPP -->
-<section style="background:var(--navy);padding:72px 5vw;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,110,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,0.03) 1px,transparent 1px);background-size:70px 70px;"></div>
-  <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;position:relative;z-index:1;" class="wa-section-resp">
-    <div>
-      <div class="section-label reveal">Contact rapide</div>
-      <h2 class="section-title section-title-white reveal">Préférez <em>WhatsApp</em> ?</h2>
-      <p class="section-sub section-sub-white reveal" style="margin-top:12px;">Envoyez-nous un message directement sur WhatsApp. Alexis vous répond personnellement dans les plus brefs délais.</p>
-    </div>
-    <div class="reveal" style="flex-shrink:0;">
-      <a href="https://wa.me/2250704883549?text=Bonjour%20Sendo%20Habitat%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20de%20r%C3%A9novation%20%C3%A0%20Abidjan." target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="gap:14px;padding:18px 40px;">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        Écrire sur WhatsApp
+<!-- ── WHATSAPP SECTION ────────────────────────────────────── -->
+<section class="wa-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label mx-auto" style="justify-content:center;">Réponse instantanée</div>
+      <h2>Préférez-vous WhatsApp ?</h2>
+      <p>Notre équipe répond généralement en moins de 2 heures en journée. Cliquez ci-dessous pour démarrer une conversation.</p>
+      <a href="https://wa.me/2250704883549?text=Bonjour%20Sendo%20Habitat%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20de%20r%C3%A9novation." class="btn btn-wa" target="_blank" rel="noopener" style="display:inline-flex; margin:0 auto;">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Écrire sur WhatsApp — +225 07 04 88 35 49
       </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand"><a href="index.html" class="nav-logo"><svg viewBox="0 0 54 54" fill="none"><polygon points="27,4 50,28 4,28" stroke="#C8A96E" stroke-width="2.2" fill="none" stroke-linejoin="round"/><line x1="19" y1="34" x2="35" y2="34" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/><line x1="13" y1="41" x2="41" y2="41" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/><line x1="8" y1="48" x2="46" y2="48" stroke="#C8A96E" stroke-width="3.5" stroke-linecap="square"/></svg><span class="nav-logo-text"><span class="logo-sendo">Sendo</span><span class="logo-habitat">Habitat</span></span></a><p>Rénovation et finitions clé en main à Abidjan, Côte d'Ivoire.</p><div class="footer-social"><a href="https://www.linkedin.com/company/sendo-habitat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://wa.me/2250704883549" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a></div></div>
-    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="qui-sommes-nous.html">L'entreprise</a></li><li><a href="realisations.html">Réalisations</a></li><li><a href="actualites.html">Actualités</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Abidjan, Côte d'Ivoire</span></div><div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+2250704883549">+225 07 04 88 35 49</a></div><div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:alexis@sendo-habitat.com">alexis@sendo-habitat.com</a></div></div>
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo footer-logo">
+        <svg viewBox="0 0 54 54" fill="none"><polygon points="27,4 50,28 4,28" stroke="#C49A3C" stroke-width="2.2" fill="none" stroke-linejoin="round"/><line x1="19" y1="34" x2="35" y2="34" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/><line x1="13" y1="41" x2="41" y2="41" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/><line x1="8" y1="48" x2="46" y2="48" stroke="#C49A3C" stroke-width="3.5" stroke-linecap="square"/></svg>
+        <span class="logo-text"><strong>Sendo</strong> Habitat</span>
+      </a>
+      <p>Rénovation et finitions clé en main à Abidjan. Expertise, rigueur et respect de vos délais &amp; budget.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/sendo-habitat/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://wa.me/2250704883549" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html">L'entreprise</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nos services</h4>
+      <ul>
+        <li><a href="contact.html">Devis &amp; Consultation</a></li>
+        <li><a href="contact.html">Maîtrise d'Œuvre</a></li>
+        <li><a href="contact.html">Bureau d'Études</a></li>
+        <li><a href="contact.html">Rénovation Complète</a></li>
+        <li><a href="contact.html">Finitions &amp; Décoration</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-info">
+        <span>📍 Abidjan, Côte d'Ivoire</span>
+        <a href="tel:+2250704883549">+225 07 04 88 35 49</a>
+        <a href="mailto:alexis@sendo-habitat.com">alexis@sendo-habitat.com</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom"><p>&copy; 2025 Sendo Habitat. Tous droits réservés. — Abidjan, Côte d'Ivoire</p><div class="footer-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div></div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Sendo Habitat — Tous droits réservés. Abidjan, Côte d'Ivoire.</p>
+    <div><a href="contact.html">Mentions légales</a><a href="contact.html">Confidentialité</a></div>
+  </div>
 </footer>
 
-<a href="https://wa.me/2250704883549" class="wa-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
-<button class="back-top" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+<a href="https://wa.me/2250704883549?text=Bonjour%20Sendo%20Habitat%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
 
-<style>
-@media(max-width:768px){
-  .wa-section-resp{grid-template-columns:1fr !important;}
-}
-</style>
-<script src="js/main.js" defer></script>
+<button class="back-top" id="back-top" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="main.js"></script>
 </body>
 </html>
