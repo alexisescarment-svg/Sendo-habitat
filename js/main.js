@@ -4,170 +4,178 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Navbar scroll behaviour ---- */
+  // ── Navbar scroll ──────────────────────────────────────
   const navbar = document.getElementById('navbar');
-  if (navbar) {
-    const checkScroll = () => {
-      if (window.scrollY > 40) {
-        navbar.classList.add('scrolled');
-        navbar.classList.remove('transparent');
-      } else {
-        navbar.classList.remove('scrolled');
-        navbar.classList.add('transparent');
-      }
-    };
-    checkScroll();
-    window.addEventListener('scroll', checkScroll, { passive: true });
-  }
-
-  /* ---- Mobile menu toggle ---- */
-  const toggle = document.querySelector('.nav-toggle');
-  const mobileMenu = document.querySelector('.nav-mobile');
-  if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      const spans = toggle.querySelectorAll('span');
-      const isOpen = mobileMenu.classList.contains('open');
-      if (isOpen) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      }
+  if (navbar && !navbar.classList.contains('scrolled')) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
   }
 
-  /* ---- Active nav link ---- */
-  const page = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href === page || (page === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
-  });
-
-  /* ---- Fade-in on scroll (Intersection Observer) ---- */
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+  // ── Mobile menu ────────────────────────────────────────
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks   = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuToggle.classList.toggle('open');
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => obs.observe(el));
-
-  /* ---- Staggered children animation ---- */
-  document.querySelectorAll('[data-stagger]').forEach(parent => {
-    const children = parent.children;
-    Array.from(children).forEach((child, i) => {
-      child.style.transitionDelay = `${i * 0.1}s`;
-      child.classList.add('fade-in');
-    });
-  });
-
-  /* ---- Smooth counter animation ---- */
-  const counters = document.querySelectorAll('[data-count]');
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const el = e.target;
-        const target = parseInt(el.dataset.count);
-        const duration = 1800;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.floor(current) + (el.dataset.suffix || '');
-          if (current >= target) clearInterval(timer);
-        }, 16);
-        counterObs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObs.observe(c));
-
-  /* ---- Forum category filter ---- */
-  document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      document.querySelectorAll('.thread-card[data-cat]').forEach(card => {
-        card.style.display = (!cat || cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.classList.remove('open');
       });
     });
+  }
+
+  // ── Scroll fade-in ─────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Stagger children ───────────────────────────────────
+  const staggerObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll(':scope > *').forEach((child, i) => {
+          child.style.transitionDelay = `${i * 0.1}s`;
+          child.classList.add('visible');
+        });
+        staggerObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.stagger-children').forEach(el => {
+    el.querySelectorAll(':scope > *').forEach(child => child.classList.add('fade-in'));
+    staggerObs.observe(el);
   });
 
-  /* ---- Circuit filter buttons ---- */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.circuit-card[data-type]').forEach(card => {
-        card.parentElement.style.display =
-          (!filter || filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+  // ── Circuit filters ────────────────────────────────────
+  const filterBtns = document.querySelectorAll('#filterBar .filter-btn');
+  if (filterBtns.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.circuit-full-card').forEach(card => {
+          const cats = card.dataset.category || '';
+          card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+        });
       });
     });
-  });
+  }
 
-  /* ---- Forum search ---- */
-  const forumSearch = document.getElementById('forum-search');
+  // ── Blog category filters ──────────────────────────────
+  const blogFilterBtns = document.querySelectorAll('.blog-filters .filter-btn');
+  if (blogFilterBtns.length) {
+    blogFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        blogFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.article-card').forEach(card => {
+          const tag = (card.dataset.category || '').toLowerCase();
+          card.style.display = (filter === 'all' || tag === filter) ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // ── Forum category filter ──────────────────────────────
+  const catBtns = document.querySelectorAll('#forumCategoriesBar .cat-btn');
+  if (catBtns.length) {
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.thread-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // ── Forum search ───────────────────────────────────────
+  const forumSearch = document.getElementById('forumSearch');
   if (forumSearch) {
     forumSearch.addEventListener('input', () => {
-      const q = forumSearch.value.toLowerCase().trim();
+      const q = forumSearch.value.toLowerCase();
       document.querySelectorAll('.thread-card').forEach(card => {
-        const title = card.querySelector('.thread-title-link')?.textContent.toLowerCase() || '';
-        const excerpt = card.querySelector('.thread-excerpt')?.textContent.toLowerCase() || '';
-        card.style.display = (title.includes(q) || excerpt.includes(q)) ? '' : 'none';
+        const text = card.querySelector('.thread-title')?.textContent.toLowerCase() || '';
+        card.style.display = text.includes(q) ? '' : 'none';
       });
     });
   }
 
-  /* ---- Contact form ---- */
-  const contactForm = document.getElementById('contact-form');
+  // ── Star rating (blog form) ────────────────────────────
+  const stars = document.querySelectorAll('#starRating .fa-star');
+  const ratingInput = document.getElementById('blogRating');
+  if (stars.length && ratingInput) {
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const val = parseInt(star.dataset.value);
+        ratingInput.value = val;
+        stars.forEach(s => {
+          s.classList.toggle('active', parseInt(s.dataset.value) <= val);
+        });
+      });
+      star.addEventListener('mouseenter', () => {
+        const val = parseInt(star.dataset.value);
+        stars.forEach(s => {
+          s.classList.toggle('hover', parseInt(s.dataset.value) <= val);
+        });
+      });
+    });
+    document.getElementById('starRating')?.addEventListener('mouseleave', () => {
+      stars.forEach(s => s.classList.remove('hover'));
+    });
+    // Init 5 stars
+    stars.forEach(s => s.classList.add('active'));
+  }
+
+  // ── Contact form ───────────────────────────────────────
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
-      const btn = contactForm.querySelector('[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Envoi en cours…';
-      await new Promise(r => setTimeout(r, 1200));
-      contactForm.style.display = 'none';
-      const success = document.querySelector('.form-success');
-      if (success) success.classList.add('show');
+      showToast('Merci ! Votre demande a bien été envoyée. Nous vous répondons sous 24h.', 'success');
+      contactForm.reset();
     });
   }
 
-  /* ---- Toast helper ---- */
-  window.showToast = (msg, type = '') => {
-    let toast = document.querySelector('.toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    toast.className = `toast ${type}`;
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => toast.classList.add('show'));
-    });
-    setTimeout(() => toast.classList.remove('show'), 3800);
-  };
-
-  /* ---- Newsletter form ---- */
-  document.querySelectorAll('.newsletter-form').forEach(form => {
-    form.addEventListener('submit', (e) => {
+  // ── Newsletter form ────────────────────────────────────
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', e => {
       e.preventDefault();
-      const input = form.querySelector('input[type="email"]');
-      if (input && input.value) {
-        input.value = '';
-        window.showToast('Merci ! Vous êtes bien inscrit(e) à notre newsletter.', 'success');
-      }
+      showToast('Inscription confirmée ! Merci de rejoindre la communauté Cuba Nauta.', 'success');
+      newsletterForm.reset();
     });
-  });
+  }
+
+  // ── Toast notification ─────────────────────────────────
+  window.showToast = (message, type = 'info') => {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('show'));
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 400);
+    }, 4000);
+  };
 
 });

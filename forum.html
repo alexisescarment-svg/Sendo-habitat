@@ -3,236 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forum — Questions / Réponses Cuba Nauta</title>
-  <meta name="description" content="Forum de voyageurs Cuba Nauta. Posez vos questions avant de partir à Cuba, lisez les réponses d'experts et d'autres voyageurs expérimentés.">
+  <title>Forum Cuba — Questions & Réponses — Cuba Nauta</title>
+  <meta name="description" content="Posez vos questions sur Cuba avant de partir. Notre communauté et nos experts vous répondent sur les visas, le budget, la santé, les activités.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar scrolled" id="navbar">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="58" r="56" fill="#1A3D2B"/><circle cx="60" cy="52" r="45" fill="#F4A922"/>
-          <path d="M28 90 Q30 72 32 56" stroke="#1A3D2B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q18 46 13 36" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q24 40 24 27" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q42 42 44 31" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M28 77 Q30 70 42 69 Q58 67 74 69 Q87 71 89 77 L87 86 Q58 90 30 86 Z" fill="#3BBCBC"/>
-          <circle cx="44" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="44" cy="88" r="4" fill="#D4C5A0"/>
-          <circle cx="76" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="76" cy="88" r="4" fill="#D4C5A0"/>
-          <rect x="8" y="90" width="104" height="22" rx="8" fill="#9B3A28"/>
-          <text x="60" y="105" text-anchor="middle" fill="#F0EAD6" font-family="Georgia,serif" font-size="10.5" font-weight="bold" letter-spacing="1.8">CUBANAUTA</text>
-        </svg>
-        <div class="logo-text">Cuba<span>Nauta</span></div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="circuits.html">Circuits</a></li>
-        <li><a href="blog.html">Témoignages</a></li>
-        <li><a href="forum.html" class="active">Forum</a></li>
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="btn btn-orange btn-sm nav-cta">Préparer mon voyage</a>
-      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="nav-mobile">
-    <ul>
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" class="logo-img" alt="Cuba Nauta">
+      <span class="logo-text">Cuba Nauta</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
       <li><a href="circuits.html">Circuits</a></li>
-      <li><a href="blog.html">Témoignages</a></li>
-      <li><a href="forum.html">Forum</a></li>
+      <li><a href="blog.html">Blog voyageurs</a></li>
+      <li><a href="forum.html" class="active">Forum</a></li>
       <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="btn-nav">Demander un devis</a></li>
     </ul>
-    <a href="contact.html" class="btn btn-orange">Préparer mon voyage</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="page-header">
-  <div class="container">
-    <span class="eyebrow">Entraide entre voyageurs</span>
-    <h1>Le Forum Cuba Nauta</h1>
-    <p>Posez vos questions, partagez vos expériences. Notre équipe et des centaines de voyageurs chevronnés vous répondent.</p>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content fade-in">
+    <span class="section-tag">Communauté</span>
+    <h1>Forum Cuba</h1>
+    <p>Des questions avant de partir ? Notre communauté de voyageurs et nos experts Cuba vous répondent.</p>
   </div>
-</header>
+</section>
 
-<section class="section-pad">
+<!-- FORUM CONTENT -->
+<section class="section">
   <div class="container">
     <div class="forum-layout">
 
-      <!-- Sidebar -->
-      <aside class="forum-sidebar">
-        <div class="forum-sidebar-card">
-          <h3><i class="fa-solid fa-list" style="margin-right:8px;color:var(--teal)"></i>Catégories</h3>
-          <div class="category-list" id="category-list">
-            <button class="cat-btn active" data-cat="all">
-              <span><i class="fa-solid fa-border-all" style="margin-right:8px;"></i>Toutes les questions</span>
-              <span class="cat-count">8</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="forum-sidebar-card" style="background:var(--dark-green);">
-          <h3 style="color:#fff;border-bottom-color:rgba(255,255,255,.1);"><i class="fa-solid fa-user-shield" style="margin-right:8px;color:var(--orange)"></i>Experts Cuba Nauta</h3>
-          <p style="color:rgba(255,255,255,.7);font-size:.83rem;margin-bottom:16px;">Notre équipe surveille le forum et répond à vos questions sous 24h.</p>
-          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border-radius:10px;padding:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;color:var(--dark-green);">A</div>
-            <div>
-              <div style="color:#fff;font-weight:700;font-size:.85rem;">Alexis</div>
-              <div style="color:rgba(255,255,255,.6);font-size:.75rem;">Expert Cuba depuis 10 ans</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="forum-sidebar-card">
-          <h3><i class="fa-solid fa-circle-info" style="margin-right:8px;color:var(--teal)"></i>Règles du forum</h3>
-          <ul style="display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:.82rem;color:var(--text-mid);display:flex;gap:8px;"><i class="fa-solid fa-check" style="color:var(--teal);margin-top:2px;flex-shrink:0;"></i>Restez bienveillant(e) et respectueux</li>
-            <li style="font-size:.82rem;color:var(--text-mid);display:flex;gap:8px;"><i class="fa-solid fa-check" style="color:var(--teal);margin-top:2px;flex-shrink:0;"></i>Partagez vos expériences personnelles</li>
-            <li style="font-size:.82rem;color:var(--text-mid);display:flex;gap:8px;"><i class="fa-solid fa-check" style="color:var(--teal);margin-top:2px;flex-shrink:0;"></i>Aucune publicité ou lien commercial</li>
-            <li style="font-size:.82rem;color:var(--text-mid);display:flex;gap:8px;"><i class="fa-solid fa-check" style="color:var(--teal);margin-top:2px;flex-shrink:0;"></i>Vérifiez si la question existe déjà</li>
-          </ul>
-        </div>
-
-        <a href="#poser-question" class="btn btn-primary" style="width:100%;justify-content:center;">
-          <i class="fa-solid fa-plus"></i> Poser une question
-        </a>
-      </aside>
-
-      <!-- Main -->
+      <!-- THREADS COLUMN -->
       <div class="forum-main">
-        <div class="forum-toolbar">
-          <div class="forum-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="forum-search" placeholder="Rechercher dans le forum…">
+        <!-- Search & filters -->
+        <div class="forum-controls fade-in">
+          <div class="forum-search-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="forumSearch" placeholder="Rechercher dans le forum...">
           </div>
-          <a href="#poser-question" class="btn btn-primary btn-sm">
-            <i class="fa-solid fa-plus"></i> Nouvelle question
+          <a href="#nouvelle-question" class="btn btn-gold">
+            <i class="fas fa-plus"></i> Poser une question
           </a>
         </div>
 
-        <div class="thread-list" id="thread-list">
-          <div style="text-align:center;padding:40px;color:var(--text-mid);">
-            <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;color:var(--teal);"></i>
-            <p style="margin-top:12px;">Chargement du forum…</p>
-          </div>
+        <div class="forum-categories-bar fade-in" id="forumCategoriesBar">
+          <button class="cat-btn active" data-cat="all">Tous</button>
+          <button class="cat-btn" data-cat="avant-le-depart">Avant le départ</button>
+          <button class="cat-btn" data-cat="logistique">Logistique</button>
+          <button class="cat-btn" data-cat="hebergement">Hébergement</button>
+          <button class="cat-btn" data-cat="sante">Santé</button>
+          <button class="cat-btn" data-cat="budget">Budget</button>
+          <button class="cat-btn" data-cat="activites">Activités</button>
         </div>
+
+        <div id="threadsContainer" class="threads-list"></div>
       </div>
+
+      <!-- SIDEBAR -->
+      <aside class="forum-sidebar">
+        <div class="sidebar-card fade-in">
+          <h3><i class="fas fa-star"></i> Règles du forum</h3>
+          <ul class="sidebar-rules">
+            <li><i class="fas fa-check"></i> Soyez respectueux</li>
+            <li><i class="fas fa-check"></i> Restez sur le sujet Cuba</li>
+            <li><i class="fas fa-check"></i> Partagez votre expérience</li>
+            <li><i class="fas fa-times"></i> Pas de publicité</li>
+          </ul>
+        </div>
+        <div class="sidebar-card fade-in">
+          <h3><i class="fas fa-fire"></i> Sujets populaires</h3>
+          <ul class="sidebar-list">
+            <li><a href="#" class="popular-thread">Monnaie à Cuba : CUP ou CUC ?</a></li>
+            <li><a href="#" class="popular-thread">Visa touriste : comment ça marche ?</a></li>
+            <li><a href="#" class="popular-thread">Internet à Cuba en 2024</a></li>
+            <li><a href="#" class="popular-thread">Casas particulares vs hôtels</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card-dark fade-in">
+          <h3><i class="fas fa-headset"></i> Réponse experte</h3>
+          <p>Les réponses marquées <span class="expert-badge-inline">Expert Cuba Nauta</span> viennent de notre équipe.</p>
+        </div>
+      </aside>
 
     </div>
   </div>
 </section>
 
-<!-- FORMULAIRE NOUVELLE QUESTION -->
-<section class="submit-form-section section-pad" id="poser-question">
+<!-- NOUVELLE QUESTION -->
+<section class="section form-section" id="nouvelle-question">
   <div class="container">
-    <div class="section-header fade-in">
-      <span class="eyebrow">Vous avez une question ?</span>
-      <h2>Posez-la à la communauté</h2>
-      <p>Notre équipe et les voyageurs expérimentés vous répondent généralement en moins de 24h.</p>
-    </div>
-
-    <div class="form-card fade-in">
-      <h2>Nouvelle question</h2>
-      <p>Soyez précis(e) dans votre question pour obtenir la meilleure réponse possible.</p>
-
-      <form id="new-thread-form" novalidate>
-        <div class="form-grid">
+    <div class="form-container fade-in">
+      <div class="form-header">
+        <span class="section-tag">Nouvelle question</span>
+        <h2>Posez votre question</h2>
+        <p>Notre équipe et la communauté vous répondent dans les 24h.</p>
+      </div>
+      <form id="forumForm" class="styled-form">
+        <div class="form-row">
           <div class="form-group">
-            <label for="f-name">Votre prénom *</label>
-            <input type="text" id="f-name" name="author_name" placeholder="Ex: Marie" required>
+            <label for="threadName">Votre prénom *</label>
+            <input type="text" id="threadName" name="author_name" placeholder="Marie" required>
           </div>
           <div class="form-group">
-            <label for="f-email">Votre e-mail (non publié)</label>
-            <input type="email" id="f-email" name="email" placeholder="pour être notifié(e) des réponses">
-          </div>
-          <div class="form-group full">
-            <label for="f-category">Catégorie *</label>
-            <select id="f-category" name="category" required>
-              <option value="avant-depart">Avant le départ</option>
-              <option value="logistique">Logistique &amp; Transport</option>
-              <option value="hebergement">Hébergement</option>
-              <option value="sante">Santé &amp; Sécurité</option>
-              <option value="budget">Budget &amp; Argent</option>
-              <option value="activites">Activités &amp; Sorties</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label for="f-title">Votre question en titre *</label>
-            <input type="text" id="f-title" name="title" placeholder="Ex: Peut-on retirer de l'argent avec une Visa à Cuba ?" required>
-          </div>
-          <div class="form-group full">
-            <label for="f-content">Détaillez votre question *</label>
-            <textarea id="f-content" name="content" placeholder="Plus vous êtes précis(e), mieux on peut vous aider. Mentionnez votre situation (dates, budget, profil de voyageur)…" required></textarea>
+            <label for="threadEmail">Votre e-mail (non publié) *</label>
+            <input type="email" id="threadEmail" name="author_email" placeholder="marie@exemple.com" required>
           </div>
         </div>
-        <p class="form-note"><i class="fa-solid fa-shield-halved" style="color:var(--teal);margin-right:4px;"></i>Votre e-mail ne sera jamais partagé ni publié. Il sert uniquement à vous notifier des réponses.</p>
-        <div class="form-submit">
-          <button type="submit" class="btn btn-primary btn-lg">
-            <i class="fa-solid fa-paper-plane"></i> Poser ma question
-          </button>
+        <div class="form-group">
+          <label for="threadCategory">Catégorie *</label>
+          <select id="threadCategory" name="category" required>
+            <option value="">— Choisir une catégorie —</option>
+            <option value="avant-le-depart">Avant le départ</option>
+            <option value="logistique">Logistique</option>
+            <option value="hebergement">Hébergement</option>
+            <option value="sante">Santé</option>
+            <option value="budget">Budget</option>
+            <option value="activites">Activités</option>
+          </select>
         </div>
+        <div class="form-group">
+          <label for="threadTitle">Titre de votre question *</label>
+          <input type="text" id="threadTitle" name="title" placeholder="Ex : Peut-on payer par carte bancaire à Cuba ?" required>
+        </div>
+        <div class="form-group">
+          <label for="threadContent">Détails de votre question *</label>
+          <textarea id="threadContent" name="content" rows="6" placeholder="Précisez votre question ici — plus vous donnez de contexte, plus la réponse sera utile !" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-large">Publier ma question <i class="fas fa-paper-plane"></i></button>
       </form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-          <circle cx="60" cy="58" r="56" fill="#1A3D2B"/><circle cx="60" cy="52" r="45" fill="#F4A922"/>
-          <path d="M28 77 Q30 70 42 69 Q58 67 74 69 Q87 71 89 77 L87 86 Q58 90 30 86 Z" fill="#3BBCBC"/>
-          <circle cx="44" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="44" cy="88" r="4" fill="#D4C5A0"/>
-          <circle cx="76" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="76" cy="88" r="4" fill="#D4C5A0"/>
-          <rect x="8" y="90" width="104" height="22" rx="8" fill="#9B3A28"/>
-          <text x="60" y="105" text-anchor="middle" fill="#F0EAD6" font-family="Georgia,serif" font-size="10.5" font-weight="bold" letter-spacing="1.8">CUBANAUTA</text>
-        </svg>
-        <span>Cuba<em>Nauta</em></span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" class="logo-img" alt="Cuba Nauta">
+          <span>Cuba Nauta</span>
+        </div>
+        <p>Spécialiste des voyages authentiques à Cuba depuis 2015.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <p>Agence de voyages spécialisée Cuba depuis 2015.</p>
-      <div class="social-links">
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="circuits.html">Circuits</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Circuits</h4>
+        <ul>
+          <li><a href="circuits.html">L'Essentiel de Cuba</a></li>
+          <li><a href="circuits.html">Cuba en profondeur</a></li>
+          <li><a href="circuits.html">Cap sur Trinidad</a></li>
+          <li><a href="circuits.html">Route musicale</a></li>
+          <li><a href="circuits.html">Cuba sur mesure</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> contact@cubanauta.fr</p>
+        <p><i class="fas fa-phone"></i> +33 (0)1 XX XX XX XX</p>
+        <a href="contact.html" class="btn btn-sm btn-gold" style="margin-top:1rem;">Demander un devis</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Navigation</h4><ul>
-      <li><a href="circuits.html">Nos circuits</a></li>
-      <li><a href="blog.html">Témoignages</a></li>
-      <li><a href="forum.html">Forum</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Circuits</h4><ul>
-      <li><a href="circuits.html">L'Essentiel de Cuba</a></li>
-      <li><a href="circuits.html">Cuba en Profondeur</a></li>
-      <li><a href="circuits.html">Cap sur Trinidad</a></li>
-      <li><a href="circuits.html">Cuba sur Mesure</a></li>
-    </ul></div>
-    <div class="footer-col footer-contact"><h4>Contact</h4>
-      <p><i class="fa-solid fa-envelope"></i> contact@cubanauta.fr</p>
-      <p><i class="fa-solid fa-phone"></i> +33 (0)1 XX XX XX XX</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cuba Nauta. Tous droits réservés.</p>
     </div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <p>© 2025 Cuba Nauta — Tous droits réservés</p>
-      <div class="footer-legal"><a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Confidentialité</a></div>
-    </div>
-  </div></div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/main.js"></script>
 <script src="js/supabase-client.js"></script>
+<script src="js/main.js"></script>
 <script src="js/forum.js"></script>
 </body>
 </html>

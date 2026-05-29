@@ -4,265 +4,252 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>À propos — Cuba Nauta</title>
-  <meta name="description" content="Découvrez l'histoire de Cuba Nauta, notre équipe passionnée de Cuba et nos valeurs. Une agence de voyages authentique spécialisée dans les circuits à Cuba.">
+  <meta name="description" content="L'histoire de Cuba Nauta : une agence née d'une passion pour Cuba, une équipe franco-cubaine, des valeurs humaines au cœur de chaque voyage.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar scrolled" id="navbar">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="58" r="56" fill="#1A3D2B"/><circle cx="60" cy="52" r="45" fill="#F4A922"/>
-          <path d="M28 90 Q30 72 32 56" stroke="#1A3D2B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q18 46 13 36" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q24 40 24 27" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M32 56 Q42 42 44 31" stroke="#1A3D2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M28 77 Q30 70 42 69 Q58 67 74 69 Q87 71 89 77 L87 86 Q58 90 30 86 Z" fill="#3BBCBC"/>
-          <circle cx="44" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="44" cy="88" r="4" fill="#D4C5A0"/>
-          <circle cx="76" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="76" cy="88" r="4" fill="#D4C5A0"/>
-          <rect x="8" y="90" width="104" height="22" rx="8" fill="#9B3A28"/>
-          <text x="60" y="105" text-anchor="middle" fill="#F0EAD6" font-family="Georgia,serif" font-size="10.5" font-weight="bold" letter-spacing="1.8">CUBANAUTA</text>
-        </svg>
-        <div class="logo-text">Cuba<span>Nauta</span></div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="circuits.html">Circuits</a></li>
-        <li><a href="blog.html">Témoignages</a></li>
-        <li><a href="forum.html">Forum</a></li>
-        <li><a href="a-propos.html" class="active">À propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="btn btn-orange btn-sm nav-cta">Préparer mon voyage</a>
-      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="nav-mobile">
-    <ul>
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" class="logo-img" alt="Cuba Nauta">
+      <span class="logo-text">Cuba Nauta</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
       <li><a href="circuits.html">Circuits</a></li>
-      <li><a href="blog.html">Témoignages</a></li>
+      <li><a href="blog.html">Blog voyageurs</a></li>
       <li><a href="forum.html">Forum</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="a-propos.html" class="active">À propos</a></li>
+      <li><a href="contact.html" class="btn-nav">Demander un devis</a></li>
     </ul>
-    <a href="contact.html" class="btn btn-orange">Préparer mon voyage</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="page-header">
-  <div class="container">
-    <span class="eyebrow">Qui sommes-nous</span>
-    <h1>Une passion, une mission</h1>
-    <p>L'histoire d'une équipe franco-cubaine unie par une passion commune pour l'île la plus envoûtante des Caraïbes.</p>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content fade-in">
+    <span class="section-tag">Notre histoire</span>
+    <h1>À propos de Cuba Nauta</h1>
+    <p>Une agence née d'une passion, construite sur des valeurs humaines, portée par une équipe franco-cubaine.</p>
   </div>
-</header>
+</section>
 
-<!-- NOTRE HISTOIRE -->
-<section class="section-pad">
+<!-- FONDATEUR -->
+<section class="section">
   <div class="container">
-    <div class="about-story">
-      <div class="about-photo fade-in-left">
-        <div class="img-fill" style="background-color:#9B3A28;background-image:url('images/founder.jpg')"></div>
-      </div>
-      <div class="fade-in-right">
-        <span class="eyebrow">Notre histoire</span>
-        <h2>Trois semaines qui ont changé une vie</h2>
-        <p>Tout a commencé en 2015. Alexis, alors consultant en entreprise à Paris, part à Cuba pour la première fois avec un billet d'avion simple et un sac à dos. Il ne reviendra que trois mois plus tard.</p>
-        <p>Ce qui devait être un voyage de déconnexion devient une révélation : la chaleur des Cubains, la musique omniprésente, les couleurs des façades coloniales, la lenteur assumée de la vie... Cuba lui offre ce qu'aucun autre endroit au monde ne lui avait donné.</p>
-        <p>De retour à Paris, une seule idée en tête : permettre aux autres Francophones de vivre Cuba sans les pièges des circuits de masse, avec la même profondeur qu'un voyageur indépendant mais la sécurité d'un accompagnement professionnel.</p>
-        <p>Cuba Nauta est née en 2016, avec un premier groupe de 6 personnes. Aujourd'hui, plus de 500 voyageurs nous ont fait confiance.</p>
-        <div class="about-signature">Alexis Escarment</div>
-        <div class="timeline" style="margin-top:28px;">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div>
-              <div class="timeline-year">2015</div>
-              <div class="timeline-text"><h4>Le voyage qui change tout</h4><p>Premier séjour à Cuba de 3 mois. Rencontre avec les futurs partenaires locaux.</p></div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div>
-              <div class="timeline-year">2016</div>
-              <div class="timeline-text"><h4>Naissance de Cuba Nauta</h4><p>Premier groupe de 6 voyageurs. Retours enthousiastes. L'aventure commence.</p></div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div>
-              <div class="timeline-year">2019</div>
-              <div class="timeline-text"><h4>100 voyageurs accompagnés</h4><p>Lancement du blog voyageurs et du forum. L'équipe s'agrandit.</p></div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div>
-              <div class="timeline-year">2025</div>
-              <div class="timeline-text"><h4>500+ voyageurs, 98% satisfaits</h4><p>6 circuits, une communauté de 2000+ membres. La famille Cuba Nauta grandit.</p></div>
-            </div>
-          </div>
+    <div class="founder-section fade-in">
+      <div class="founder-img"></div>
+      <div class="founder-content">
+        <span class="section-tag">Le fondateur</span>
+        <h2>Bonjour, je suis Alexis</h2>
+        <p class="founder-lead">Mon premier voyage à Cuba en 2014 devait durer deux semaines. Je suis resté trois mois.</p>
+        <p>J'y ai rencontré des musiciens à La Havane, des agriculteurs à Viñales, des familles à Trinidad qui m'ont accueilli à leur table. J'ai compris que Cuba ne se raconte pas — elle se vit. C'est pour ça que j'ai créé Cuba Nauta.</p>
+        <p>Aujourd'hui, notre équipe franco-cubaine construit des voyages qui créent de vraies connexions. Pas des tours opérateurs classiques, mais des immersions dans une île qui vous transforme.</p>
+        <div class="founder-quote">
+          <blockquote>"Cuba n'est pas une destination. C'est une rencontre."</blockquote>
+          <cite>— Alexis, fondateur de Cuba Nauta</cite>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOS VALEURS -->
-<section class="testimonials-bg section-pad">
+<!-- TIMELINE -->
+<section class="section timeline-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="eyebrow">Ce qui nous guide</span>
-      <h2>Nos valeurs</h2>
-      <p>Trois valeurs fondamentales qui orientent chaque décision, chaque circuit, chaque rencontre.</p>
+      <span class="section-tag">Notre histoire</span>
+      <h2>De 2014 à aujourd'hui</h2>
     </div>
-    <div class="values-grid">
-      <div class="value-card fade-in">
-        <div class="value-icon" style="background:var(--teal-bg);color:var(--teal);"><i class="fa-solid fa-seedling"></i></div>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2014</div>
+        <div class="timeline-content">
+          <h3>Le déclic</h3>
+          <p>Premier voyage à Cuba. Trois mois d'immersion totale qui changent tout. La certitude que Cuba mérite mieux que les circuits standardisés.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-content">
+          <h3>Naissance de Cuba Nauta</h3>
+          <p>Création de l'agence avec un premier circuit test avec dix voyageurs. Résultat : dix personnes conquises et des amitiés durables avec des Cubains.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2017</div>
+        <div class="timeline-content">
+          <h3>L'équipe cubaine</h3>
+          <p>Yanelis et Miguel rejoignent l'aventure à La Havane. Un réseau de guides locaux de confiance se constitue dans tout le pays.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-content">
+          <h3>Le circuit sur mesure</h3>
+          <p>Lancement de l'offre "Cuba sur mesure" — une réponse à la demande croissante de voyageurs qui veulent une expérience unique.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>La communauté</h3>
+          <p>Création du blog voyageurs et du forum pour que les anciens voyageurs partagent leur expérience et aident les futurs.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h3>Aujourd'hui</h3>
+          <p>Une agence spécialisée reconnue, une équipe soudée, et la même passion intacte pour cette île extraordinaire.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="section values-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Nos valeurs</span>
+      <h2>Ce qui nous guide</h2>
+    </div>
+    <div class="values-grid stagger-children">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
         <h3>Authenticité</h3>
-        <p>Pas de paillettes, pas de décors. Cuba comme elle est : chaotique, belle, vibrante, humaine. Nos circuits fuient les spots surfaits pour les vraies expériences.</p>
+        <p>Nous ne faisons pas semblant. Chaque circuit, chaque guide, chaque maison d'hôte est choisi parce qu'il représente la vraie Cuba — pas une mise en scène pour touristes.</p>
       </div>
-      <div class="value-card fade-in" style="transition-delay:.1s">
-        <div class="value-icon" style="background:#FBF0EE;color:var(--terracotta);"><i class="fa-solid fa-handshake-angle"></i></div>
-        <h3>Responsabilité</h3>
-        <p>Nous travaillons exclusivement avec des familles cubaines et des guides locaux. Chaque euro de votre voyage va directement dans l'économie locale.</p>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-seedling"></i></div>
+        <h3>Tourisme responsable</h3>
+        <p>Nous travaillons exclusivement avec des prestataires locaux cubains. Votre argent de voyage profite directement aux familles cubaines qui vous accueillent.</p>
       </div>
-      <div class="value-card fade-in" style="transition-delay:.2s">
-        <div class="value-icon" style="background:#FEF6E7;color:var(--orange-dark);"><i class="fa-solid fa-people-group"></i></div>
-        <h3>Communauté</h3>
-        <p>Nos voyageurs ne sont pas des clients, ce sont des membres d'une famille. Avant, pendant et après le voyage, le lien reste vivant.</p>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-people-arrows"></i></div>
+        <h3>Rencontres humaines</h3>
+        <p>Le vrai luxe d'un voyage à Cuba, c'est les gens. Nos circuits sont conçus pour favoriser ces rencontres qui changent une vie.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Fiabilité</h3>
+        <p>Cuba peut être imprévisible. Notre équipe sur place gère les imprévus avec calme et expérience, pour que votre voyage se passe toujours bien.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOTRE ÉQUIPE -->
-<section class="section-pad">
+<!-- ÉQUIPE -->
+<section class="section team-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="eyebrow">Les visages derrière Cuba Nauta</span>
-      <h2>Notre équipe</h2>
-      <p>Une équipe franco-cubaine soudée par une passion commune : vous faire aimer Cuba autant que nous l'aimons.</p>
+      <span class="section-tag">L'équipe</span>
+      <h2>Ceux qui font Cuba Nauta</h2>
     </div>
-    <div class="team-grid">
-      <div class="team-card fade-in">
-        <div class="team-photo" style="background:linear-gradient(135deg,var(--teal-light),var(--dark-green-mid));">A</div>
-        <h4>Alexis</h4>
-        <div class="team-role">Fondateur &amp; directeur</div>
-        <p>Basé à Paris et La Havane en alternance. Parle espagnol couramment. Cuba l'a happé en 2015.</p>
+    <div class="team-grid stagger-children">
+      <div class="team-card">
+        <div class="team-photo team-photo-default"><i class="fas fa-user"></i></div>
+        <h3>Alexis</h3>
+        <span class="team-role">Fondateur & directeur</span>
+        <p>Parisien tombé amoureux de Cuba en 2014. Connaît les meilleurs paladares de La Havane et parle l'espagnol version havanaise.</p>
       </div>
-      <div class="team-card fade-in" style="transition-delay:.1s">
-        <div class="team-photo" style="background:linear-gradient(135deg,var(--orange),var(--terracotta));">Y</div>
-        <h4>Yanelis</h4>
-        <div class="team-role">Coordinatrice Cuba</div>
-        <p>Née à Santiago de Cuba. Gère tout l'opérationnel sur l'île. Connaît Cuba comme sa poche.</p>
+      <div class="team-card">
+        <div class="team-photo team-photo-default"><i class="fas fa-user"></i></div>
+        <h3>Yanelis</h3>
+        <span class="team-role">Coordinatrice à La Havane</span>
+        <p>Née à La Havane, elle connaît chaque rue de la vieille ville. Notre super-coordinatrice sur le terrain, disponible 7j/7 pour nos voyageurs.</p>
       </div>
-      <div class="team-card fade-in" style="transition-delay:.2s">
-        <div class="team-photo" style="background:linear-gradient(135deg,#9B3A28,#F4A922);">M</div>
-        <h4>Miguel</h4>
-        <div class="team-role">Guide principal</div>
-        <p>Guide certifié depuis 2008. Spécialiste histoire et culture cubaine. Francophone impeccable.</p>
+      <div class="team-card">
+        <div class="team-photo team-photo-default"><i class="fas fa-user"></i></div>
+        <h3>Miguel</h3>
+        <span class="team-role">Guide expert Est cubain</span>
+        <p>Santiaguero de naissance, musicien à ses heures perdues. Notre spécialiste de l'Est de Cuba — Santiago, Baracoa, Sierra Maestra.</p>
       </div>
-      <div class="team-card fade-in" style="transition-delay:.3s">
-        <div class="team-photo" style="background:linear-gradient(135deg,var(--dark-green),var(--teal));">S</div>
-        <h4>Sarah</h4>
-        <div class="team-role">Conseillère voyages (Paris)</div>
-        <p>Votre interlocutrice principale à Paris pour la préparation de votre voyage. Passionnée de Cuba depuis 2018.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CHIFFRES -->
-<section style="background:var(--dark-green);padding:80px 0;">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
-      <div class="fade-in">
-        <div style="font-family:var(--font-heading);font-size:3.5rem;color:var(--orange);font-weight:700;line-height:1;" data-count="500" data-suffix="+">500+</div>
-        <div style="color:rgba(255,255,255,.7);margin-top:8px;font-size:.9rem;">Voyageurs accompagnés</div>
-      </div>
-      <div class="fade-in" style="transition-delay:.1s">
-        <div style="font-family:var(--font-heading);font-size:3.5rem;color:var(--teal);font-weight:700;line-height:1;" data-count="10" data-suffix=" ans">10 ans</div>
-        <div style="color:rgba(255,255,255,.7);margin-top:8px;font-size:.9rem;">d'expertise Cuba</div>
-      </div>
-      <div class="fade-in" style="transition-delay:.2s">
-        <div style="font-family:var(--font-heading);font-size:3.5rem;color:var(--orange);font-weight:700;line-height:1;" data-count="98" data-suffix="%">98%</div>
-        <div style="color:rgba(255,255,255,.7);margin-top:8px;font-size:.9rem;">de satisfaction</div>
-      </div>
-      <div class="fade-in" style="transition-delay:.3s">
-        <div style="font-family:var(--font-heading);font-size:3.5rem;color:var(--teal);font-weight:700;line-height:1;" data-count="6">6</div>
-        <div style="color:rgba(255,255,255,.7);margin-top:8px;font-size:.9rem;">circuits proposés</div>
+      <div class="team-card">
+        <div class="team-photo team-photo-default"><i class="fas fa-user"></i></div>
+        <h3>Sarah</h3>
+        <span class="team-role">Conseillère en voyages</span>
+        <p>Basée à Paris, Sarah vous accompagne de la première question jusqu'au retour. Elle a visité Cuba quatre fois et connaît vos futurs coups de cœur.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section-pad">
-  <div class="container" style="text-align:center;max-width:600px;margin:0 auto;">
-    <div class="fade-in">
-      <span class="eyebrow">Prêt(e) pour l'aventure ?</span>
-      <h2>Votre Cuba vous attend</h2>
-      <p style="color:var(--text-mid);margin-bottom:32px;">Nous sommes là pour répondre à toutes vos questions, sans obligation. Contactez-nous et découvrons ensemble votre itinéraire idéal.</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="circuits.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-route"></i> Voir les circuits</a>
-        <a href="contact.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-envelope"></i> Nous contacter</a>
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <h2>Prêt à découvrir Cuba avec nous ?</h2>
+      <p>Parlons de votre voyage idéal. C'est gratuit, sans engagement, et ça commence par une conversation.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="circuits.html" class="btn btn-white">Voir les circuits</a>
+        <a href="contact.html" class="btn btn-gold">Nous contacter <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-          <circle cx="60" cy="58" r="56" fill="#1A3D2B"/><circle cx="60" cy="52" r="45" fill="#F4A922"/>
-          <path d="M28 77 Q30 70 42 69 Q58 67 74 69 Q87 71 89 77 L87 86 Q58 90 30 86 Z" fill="#3BBCBC"/>
-          <circle cx="44" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="44" cy="88" r="4" fill="#D4C5A0"/>
-          <circle cx="76" cy="88" r="7.5" fill="#1A3D2B"/><circle cx="76" cy="88" r="4" fill="#D4C5A0"/>
-          <rect x="8" y="90" width="104" height="22" rx="8" fill="#9B3A28"/>
-          <text x="60" y="105" text-anchor="middle" fill="#F0EAD6" font-family="Georgia,serif" font-size="10.5" font-weight="bold" letter-spacing="1.8">CUBANAUTA</text>
-        </svg>
-        <span>Cuba<em>Nauta</em></span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.png" class="logo-img" alt="Cuba Nauta">
+          <span>Cuba Nauta</span>
+        </div>
+        <p>Spécialiste des voyages authentiques à Cuba depuis 2015.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <p>Agence de voyages spécialisée Cuba depuis 2015.</p>
-      <div class="social-links">
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="circuits.html">Circuits</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Circuits</h4>
+        <ul>
+          <li><a href="circuits.html">L'Essentiel de Cuba</a></li>
+          <li><a href="circuits.html">Cuba en profondeur</a></li>
+          <li><a href="circuits.html">Cap sur Trinidad</a></li>
+          <li><a href="circuits.html">Route musicale</a></li>
+          <li><a href="circuits.html">Cuba sur mesure</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> contact@cubanauta.fr</p>
+        <p><i class="fas fa-phone"></i> +33 (0)1 XX XX XX XX</p>
+        <a href="contact.html" class="btn btn-sm btn-gold" style="margin-top:1rem;">Demander un devis</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Navigation</h4><ul>
-      <li><a href="circuits.html">Nos circuits</a></li>
-      <li><a href="blog.html">Témoignages</a></li>
-      <li><a href="forum.html">Forum</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Circuits</h4><ul>
-      <li><a href="circuits.html">L'Essentiel de Cuba</a></li>
-      <li><a href="circuits.html">Cuba en Profondeur</a></li>
-      <li><a href="circuits.html">Cap sur Trinidad</a></li>
-      <li><a href="circuits.html">Cuba sur Mesure</a></li>
-    </ul></div>
-    <div class="footer-col footer-contact"><h4>Contact</h4>
-      <p><i class="fa-solid fa-envelope"></i> contact@cubanauta.fr</p>
-      <p><i class="fa-solid fa-phone"></i> +33 (0)1 XX XX XX XX</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cuba Nauta. Tous droits réservés.</p>
     </div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <p>© 2025 Cuba Nauta — Tous droits réservés</p>
-      <div class="footer-legal"><a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Confidentialité</a></div>
-    </div>
-  </div></div>
+  </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
